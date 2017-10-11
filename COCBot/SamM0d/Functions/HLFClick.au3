@@ -32,7 +32,7 @@ Global $aButtonClose7[9]    = [720, 104 + $g_iMidOffsetY, 738, 125 + $g_iMidOffs
 Global $aButtonClose8[9]	= [780, 185              , 835, 250              , 0  , 0                , 	0x0     ,  0, "=-= Random Away Coordinate"]
 
 ;~ ; ScreenCoordinates - first 4 values store the region [x1,y1,x2,y2] that can click; values 5,6,7,8 is the color check pixel x,y,color,tolerance level for confirm the button exist if needed.
-Global $aButtonOpenTrainArmy[9]  	  	  = [20 , 540 + $g_iMidOffsetY, 55 , 570 + $g_iMidOffsetY, 50 , 537 + $g_iMidOffsetY, 	0xE1A339, 20, "=-= Open Train Army Page"] ; Main Screen, Army Train Button
+Global $aButtonOpenTrainArmy[9]  	  	  = [25 , 540 + $g_iMidOffsetY, 50 , 570 + $g_iMidOffsetY, 50 , 537 + $g_iMidOffsetY, 	0xEEAF45, 20, "=-= Open Train Army Page"] ; Main Screen, Army Train Button
 Global $aButtonOpenProfile[9]    	  	  = [28 , 23               , 46 , 46               , 38 , 18               ,    0x10D0F0, 20, "=-= Open Profile Page"] ; Main page, Open Profile Button
 ;Global $aButtonOpenShieldInfo[9] 	  	  = [430, 7                , 442, 20               , 435, 14               ,    0xE8E8E0, 20, "=-= Open Shield Info Page"] ; main page, open shield info page
 Global $aButtonOpenShieldInfo[9] 	  	  = [430, 7                , 442, 20               , 436, 14               ,    0xF5F5ED, 6, "=-= Open Shield Info Page"] ; main page, open shield info page
@@ -79,11 +79,11 @@ Global $aButtonEditArmy[9]                = [740, 445+ $g_iMidOffsetY , 800, 470
 Global $aButtonEditCancel[9]              = [740, 470+ $g_iMidOffsetY , 800, 490 + $g_iMidOffsetY, 800, 485 + $g_iMidOffsetY,    0XD80408, 20, "=-= Edit Army Cancel"]
 Global $aButtonEditOkay[9]                = [740, 532+ $g_iMidOffsetY , 800, 552 + $g_iMidOffsetY, 800, 530 + $g_iMidOffsetY,    0XD0E878, 20, "=-= Edit Army Okay"]
 
-Global $aButtonFriendlyChallenge[9]       = [240,                   55, 280,                   70, 285,                   50,    0XDDF585, 20, "=-= Friendly Challenge"]
-Global $aButtonFCChangeLayout[9]          = [200,                  240, 280,                  255, 240,                  234,    0XDDF585, 20, "=-= Change Layout"]
-Global $aButtonFCStart[9]                 = [500,                  236, 550,                  256, 530,                  234,    0XDBF583, 20, "=-= Start Share Challenge"]
-Global $aButtonFCBack[9]                  = [164,                   55, 195,                   70, 184,                   64,    0XF5FDFF, 10, "=-= Back To Challenge"]
-Global $aButtonFCClose[9]                 = [690,                   53, 708,                   70, 699,                   59,    0xFFFFFF, 10, "=-= Close Challenge"]
+Global $aButtonFriendlyChallenge[9]       = [160,                  700, 220,                  714, 200,                  693,    0XDDF685, 20, "=-= Friendly Challenge"]
+Global $aButtonFCChangeLayout[9]          = [200,                  290, 280,                  305, 240,                  285,    0XDDF685, 20, "=-= Change Layout"]
+Global $aButtonFCStart[9]                 = [500,                  290, 550,                  305, 530,                  284,    0XDBF685, 20, "=-= Start Share Challenge"]
+Global $aButtonFCBack[9]                  = [160,                  106, 195,                  120, 180,                  116,    0XF5FDFF, 10, "=-= Back To Challenge"]
+Global $aButtonFCClose[9]                 = [690,                  103, 710,                  125, 700,                  111,    0xFFFFFF, 10, "=-= Close Challenge"]
 
 
 Global $aButtonGuardRemove[9]             = [500,260,560,275,530,275,0XE51115,15,"=-= Guard Remove"]

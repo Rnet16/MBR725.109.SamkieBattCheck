@@ -37,7 +37,7 @@ Func ModTrain($ForcePreTrain = False)
 	checkAttackDisable($g_iTaBChkIdle)
 	If $g_bRestart = True Then Return
 
-	If WaitforPixel(31, 515 + $g_iBottomOffsetY, 33, 517 + $g_iBottomOffsetY, Hex(0xFFFDED, 6), 10, 20) Then
+	If _Wait4Pixel($aButtonOpenTrainArmy[4], $aButtonOpenTrainArmy[5], $aButtonOpenTrainArmy[6], $aButtonOpenTrainArmy[7]) Then
 		If $g_iSamM0dDebug = 1 Then SetLog("Click $aArmyTrainButton", $COLOR_SUCCESS)
 		If IsMainPage() Then
 			If $g_bUseRandomClick = False Then

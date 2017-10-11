@@ -295,6 +295,8 @@ Func btnTestTrain()
 ;~ 	PrepareAttack($LB, True)
 ;~ 	SelectDropTroop(4)
 
+;FriendlyChallenge()
+
 	$g_bRestart = False
 	$tempDisableTrain=False
 	$tempDisableBrewSpell=False
@@ -335,7 +337,7 @@ Func btnTestDonateCC()
 	Setlog("Detecting Troops...")
 	DetectSlotTroop($eBowl)
 	Setlog("Detecting Spells...")
-	DetectSlotTroop($eSkSpell)
+	DetectSlotSpell($eSkSpell)
 	SetLog(_PadStringCenter(" Test DonateCC end ", 54, "="), $COLOR_INFO)
 	ShellExecute($g_sProfileTempDebugPath & "donateCC_")
 

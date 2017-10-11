@@ -511,16 +511,16 @@ Func FriendlyChallenge()
 
 	If $bDoFriendlyChallenge Then
 		SetLog("Prepare for select base: " & $iBaseForShare + 1, $COLOR_INFO)
-		If _Wait4Pixel($aButtonFriendlyChallenge[4], $aButtonFriendlyChallenge[5], $aButtonFriendlyChallenge[6], $aButtonFriendlyChallenge[7], 1500) Then
+		If _Wait4Pixel($aButtonFriendlyChallenge[4], $aButtonFriendlyChallenge[5], $aButtonFriendlyChallenge[6], $aButtonFriendlyChallenge[7], 1500, 150, "$aButtonFriendlyChallenge") Then
 			Click($aButtonFriendlyChallenge[4], $aButtonFriendlyChallenge[5], 1, 0, "#BtnFC")
-			If _Wait4Pixel($aButtonFCChangeLayout[4], $aButtonFCChangeLayout[5], $aButtonFCChangeLayout[6], $aButtonFCChangeLayout[7], 1500) Then
+			If _Wait4Pixel($aButtonFCChangeLayout[4], $aButtonFCChangeLayout[5], $aButtonFCChangeLayout[6], $aButtonFCChangeLayout[7], 1500, 150, "$aButtonFCChangeLayout") Then
 				Click($aButtonFCChangeLayout[4], $aButtonFCChangeLayout[5], 1, 0, "#BtnFCCL")
-				If _Wait4Pixel($aButtonFCBack[4], $aButtonFCBack[5], $aButtonFCBack[6], $aButtonFCBack[7], 1500) Then
+				If _Wait4Pixel($aButtonFCBack[4], $aButtonFCBack[5], $aButtonFCBack[6], $aButtonFCBack[7], 1500, 150, "$aButtonFCBack") Then
 					If CheckNeedSwipeFriendlyChallengeBase($iBaseForShare) Then
-						If _Wait4Pixel($aButtonFCStart[4], $aButtonFCStart[5], $aButtonFCStart[6], $aButtonFCStart[7], 1500) Then
+						If _Wait4Pixel($aButtonFCStart[4], $aButtonFCStart[5], $aButtonFCStart[6], $aButtonFCStart[7], 1500, 150, "$aButtonFCStart") Then
 							Local $bIsBtnStartOk = True
 							If $stxtChallengeText <> "" Then
-								Click(Random(440,620,1),Random(120,130,1))
+								Click(Random(440,620,1),Random(165,185,1))
 								If _Sleep(100) Then Return False
 								Local $asText = StringSplit($stxtChallengeText, @CRLF, BitOR($STR_ENTIRESPLIT,$STR_NOCOUNT))
 								If IsArray($asText) Then
@@ -531,7 +531,7 @@ Func FriendlyChallenge()
 										Setlog(" challenge text entry failed!", $COLOR_ERROR)
 									EndIf
 								EndIf
-								If Not _Wait4Pixel($aButtonFCStart[4], $aButtonFCStart[5], $aButtonFCStart[6], $aButtonFCStart[7], 1500) Then $bIsBtnStartOk = False
+								If Not _Wait4Pixel($aButtonFCStart[4], $aButtonFCStart[5], $aButtonFCStart[6], $aButtonFCStart[7], 1500, 150, "$aButtonFCStart") Then $bIsBtnStartOk = False
 							EndIf
 							If $bIsBtnStartOk Then
 								Click($aButtonFCStart[4], $aButtonFCStart[5], 1, 0, "#BtnFCStart")
@@ -570,23 +570,23 @@ Func CheckNeedSwipeFriendlyChallengeBase($iBaseSlot)
 	Local $iCount = 0
 	If $iBaseSlot > $iSwipeNum Then
 		$iCount = 0
-		While Not _ColorCheck(_GetPixelColor(711, 230, True), Hex(0XCFD0C9, 6), 10)
-			ClickDrag(700,150,150,150,250)
+		While Not _ColorCheck(_GetPixelColor(712, 295, True), Hex(0XD3D3CB, 6), 10)
+			ClickDrag(700,250,150,250,250)
 			If _sleep(250) Then Return False
 			$iCount += 1
 			If $iCount > 3 Then Return False
 		WEnd
 		$iBaseSlot -= 3
-		Click(Random(200 + ($iBaseSlot * 184), 230 + ($iBaseSlot * 184), 1) , Random(185,200,1))
+		Click(Random(200 + ($iBaseSlot * 184), 230 + ($iBaseSlot * 184), 1) , Random(220,270,1))
 	Else
 		$iCount = 0
-		While Not _ColorCheck(_GetPixelColor(148, 230, True), Hex(0XD1D0C9, 6), 10)
-			ClickDrag(155,150,705,150,250)
+		While Not _ColorCheck(_GetPixelColor(146, 295, True), Hex(0XD3D3CB, 6), 10)
+			ClickDrag(155,250,705,250,250)
 			If _sleep(250) Then Return False
 			$iCount += 1
 			If $iCount > 3 Then Return False
 		WEnd
-		Click(Random(200 + ($iBaseSlot * 184), 230 + ($iBaseSlot * 184), 1) , Random(185,200,1))
+		Click(Random(200 + ($iBaseSlot * 184), 230 + ($iBaseSlot * 184), 1) , Random(220,270,1))
 	EndIf
 	Return True
 EndFunc

@@ -3,6 +3,11 @@
 #AutoIt3Wrapper_UseUpx=y
 #Au3Stripper_Parameters=/rsln /MI=3
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Compression=4
+#AutoIt3Wrapper_UseUpx=y
+#Au3Stripper_Parameters=/rsln /MI=3
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 ; #FUNCTION# ====================================================================================================================
 ; Name ..........: MBR Bot
 ; Description ...: This file contains the initialization and main loop sequences f0r the MBR Bot
@@ -74,7 +79,7 @@ InitializeBot()
 MainLoop()
 
 Func UpdateBotTitle()
-	Local $sTitle = "My Bot " & $g_sBotVersion & " @Samkie M0d v1.0.8 "
+	Local $sTitle = "My Bot " & $g_sBotVersion & " @Samkie M0d v1.0.9 "
 	If $g_sBotTitle = "" Then
 		$g_sBotTitle = $sTitle
 	Else

@@ -498,7 +498,7 @@ Func DoSwitchAcc()
 
 		Switch $icmbSwitchMethod
 			Case 2
-				PoliteCloseCoC()
+				PoliteCloseCoC("MySwitch", True)
 				;If _Sleep(1500) Then Return False
 				$iCurActiveAcc = $iNextAcc
 				DoVillageLoadSucess($iCurActiveAcc)
@@ -1165,7 +1165,7 @@ Func btnMakeSwitchADBFolder()
 
 		Local $lResult
 
-		PoliteCloseCoC()
+		PoliteCloseCoC("MySwitch", True)
 		;If _Sleep(1500) Then Return False
 
 		If $g_iSamM0dDebug = 1 Then SetLog("$g_sEmulatorInfo4MySwitch: " & $g_sEmulatorInfo4MySwitch)
@@ -1217,7 +1217,7 @@ Func btnPushshared_prefs()
 	$g_bRunState = True
 
 	SetLog("Start")
-	PoliteCloseCoC()
+	PoliteCloseCoC("MySwitch", True)
 	;If _Sleep(1500) Then Return False
 	Local $lResult
 	Local $sMyProfilePath4shared_prefs = @ScriptDir & "\profiles\" & $g_sProfileCurrentName & "\shared_prefs"
@@ -1255,7 +1255,7 @@ Func btnPushshared_prefs()
 EndFunc
 
 Func loadVillageFrom($Profilename)
-	PoliteCloseCoC()
+	PoliteCloseCoC("MySwitch", True)
 	;If _Sleep(1500) Then Return False
 	Local $lResult
 	Local $sMyProfilePath4shared_prefs = @ScriptDir & "\profiles\" & $Profilename & "\shared_prefs"
