@@ -191,11 +191,17 @@ EndFunc   ;==>btnSearchMode
 Func btnPause($RunNow = True)
 	;Send("{PAUSE}")
 	TogglePause()
+	;rnetfromxbenk ~ stop on lowbat
+	GUICtrlSetState($g_hLblBatteryAC, $GUI_HIDE) 
+	GUICtrlSetState($g_hLblBatteryStatus, $GUI_HIDE) 
 EndFunc   ;==>btnPause
 
 Func btnResume()
 	;Send("{PAUSE}")
 	TogglePause()
+	;rnetfromxbenk ~ stop on lowbat
+	GUICtrlSetState($g_hLblBatteryAC, $GUI_SHOW) 
+	GUICtrlSetState($g_hLblBatteryStatus, $GUI_SHOW) 
 EndFunc   ;==>btnResume
 
 Func btnAttackNowDB()

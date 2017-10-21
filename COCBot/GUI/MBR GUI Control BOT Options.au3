@@ -928,3 +928,7 @@ Func btnTestWeakBase()
 	EndImageTest()
 	$g_bRunState = $currentRunState
 EndFunc   ;==>btnTestWeakBase
+;rnetfromxbenk ~ stop on lowbat
+Func ChkStopOnBatt()
+	$g_bStopOnBatt = (GUICtrlRead($g_hChkStopOnBatt) = $GUI_CHECKED)
+EndFunc   ;==>ChkStopOnBatt

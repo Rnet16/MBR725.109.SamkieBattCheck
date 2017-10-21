@@ -27,6 +27,8 @@ Global $g_hTxtGlobalActiveBotsAllowed = 0, $g_hTxtGlobalThreads = 0, $g_hTxtThre
 Global $g_hChkBotCustomTitleBarClick = 0, $g_hChkBotAutoSlideClick = 0, $g_hChkHideWhenMinimized = 0, $g_hChkUseRandomClick = 0, $g_hChkScreenshotType = 0, _
 	   $g_hChkScreenshotHideName = 0, $g_hTxtTimeAnotherDevice = 0
 Global $g_hChkSinglePBTForced = 0, $g_hTxtSinglePBTimeForced = 0, $g_hTxtPBTimeForcedExit = 0, $g_hChkFixClanCastle = 0, $g_hChkAutoResume = 0, $g_hTxtAutoResumeTime = 0, $g_hChkDisableNotifications = 0
+;rnetfromxbenk ~ stop on lowbat
+Global $g_hChkStopOnBatt = 0, $g_hTxtStopOnBatt = 0
 
 Func CreateBotOptions()
 
@@ -199,6 +201,15 @@ Func CreateBotOptions()
 		$y += 19
 	   $g_hChkUseRandomClick = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Bot - Options", "ChkUseRandomClick", "Random Click"), $x, $y, -1, -1)
 		   GUICtrlSetOnEvent(-1, "chkUseRandomClick")
+	;rnetfromxbenk ~ stop on lowbat
+		$y += 19
+	   $g_hChkStopOnBatt = GUICtrlCreateCheckbox(GetTranslatedFileIni("MBR GUI Design Child Bot - Options", "ChkStopOnBatt", "Stop if battery % below"), $x, $y + 2, -1, -1)
+			_GUICtrlSetTip(-1,GetTranslatedFileIni("MBR GUI Design Child Bot - Options", "ChkStopOnBatt_Info_01", "Will stop bot and emulator if battery status below % value"))
+			GUICtrlSetOnEvent(-1, "ChkStopOnBatt")
+		$g_hTxtStopOnBatt = GUICtrlCreateInput("15",$x + 132, $y + 5, 30, 16, BitOR($GUI_SS_DEFAULT_INPUT, $ES_CENTER, $ES_NUMBER))
+
+ 
+		   
    GUICtrlCreateGroup("", -99, -99, 1, 1)
 
    $y += 45

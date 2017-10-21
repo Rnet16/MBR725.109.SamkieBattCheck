@@ -88,6 +88,13 @@ Func WaitForClouds()
 		$iSearchTime = __TimerDiff($hMinuteTimer) / 60000 ;get time since minute timer start in minutes
 		If $iSearchTime >= $iLastTime + 1 Then
 			Setlog("Cloud wait time " & StringFormat("%.1f", $iSearchTime) & " minute(s)", $COLOR_INFO)
+	
+			;rnetfromxbenk ~ stop on lowbat
+			If $g_bStopOnBatt = True Then
+				Setlog("Check Stop on battery", $COLOR_INFO)
+				_BatteryStatus()
+			EndIf
+	
 			$iLastTime += 1
 			; samm0d - everything reset cause of PB
 			If chkAttackSearchPersonalBreak() = True Then

@@ -572,6 +572,11 @@ Func FinalInitialization(Const $sAI)
 	; destroy splash screen here (so we witness the 100% ;)
 	DestroySplashScreen()
 
+	;rnetfromxbenk ~ stop on lowbat
+	If $g_bStopOnBatt Then
+		_BatteryStatus()
+	EndIf
+
 	;AdlibRegister("PushBulletRemoteControl", $g_iPBRemoteControlInterval)
 	;AdlibRegister("PushBulletDeleteOldPushes", $g_iPBDeleteOldPushesInterval)
 
@@ -899,6 +904,11 @@ Func Idle() ;Sequence that runs until Full Army
 	If $g_iDebugSetlog = 1 Then SetLog("Func Idle ", $COLOR_DEBUG)
 
 
+	;rnetfromxbenk ~ stop on lowbat
+	If $g_bStopOnBatt Then
+	_BatteryStatus()
+	EndIf
+	
 	; samm0d - check make donate type account enter idle loop
 	If $ichkEnableMySwitch Then
 		If $iCurActiveAcc <> -1 Then

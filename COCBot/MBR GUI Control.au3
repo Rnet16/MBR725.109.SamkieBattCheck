@@ -2051,3 +2051,36 @@ Func IsGUICtrlHidden($hGUICtrl)
 	If BitAnd(WinGetState(GUICtrlGetHandle($hGUICtrl), ""), 2) = 0 Then Return True
 	Return False
 EndFunc
+
+;rnetfromxbenk ~ stop on lowbat
+Func _BatteryStatus()
+    Local $aData = _WinAPI_GetSystemPowerStatus()
+    If @error Then Return
+
+    If BitAND($aData[1], 128) Then
+        $aData[0] = '!!'
+    Else
+        Switch $aData[0]; ac or battery
+            Case 0
+                $aData[0] = 'BATT'
+            Case 1
+                $aData[0] = 'AC'
+            Case Else
+                $aData[0] = '--'
+		EndSwitch
+
+		If $aData[0] = 'BATT' Then
+			SetLog("Battery/Charging: " & $aData[0] & " Battery status: " & $aData[2] & "%")
+			GUICtrlSetData($g_hLblBatteryAC, $aData[0])
+			GUICtrlSetData($g_hLblBatteryStatus, $aData[2] & "%")
+
+			If $aData[2] < $g_iStopOnBatt Then
+				SetLog("Battery status : " & $aData[2] & "% and is below than " & $g_iStopOnBatt & "%",$COLOR_WARNING)
+				SetLog("Stopping bot",$COLOR_ACTION1)
+				PoliteCloseCoC()
+				CloseAndroid(_BatteryStatus)
+				BotStop()
+			EndIf
+		EndIf
+    EndIf
+EndFunc   ;==>_BatteryStatus
