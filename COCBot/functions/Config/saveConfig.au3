@@ -993,6 +993,10 @@ Func SaveConfig_600_35()
 	_Ini_Add("other", "AutoResumeTime", $g_iAutoResumeTime)
 	_Ini_Add("other", "ChkDisableNotifications", $g_bDisableNotifications)
 	_Ini_Add("other", "ChkFixClanCastle", $g_bForceClanCastleDetection ? 1 : 0)
+	;rnetfromxbenk ~ stop on lowbat
+	_Ini_Add("other", "ChkStopOnBatt", $g_bStopOnBatt ? 1 : 0)
+	_Ini_Add("other", "StopOnBatt", $g_iStopOnBatt)
+
 EndFunc   ;==>SaveConfig_600_35
 
 Func SaveConfig_600_52_1()
